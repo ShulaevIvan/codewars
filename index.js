@@ -1,0 +1,90 @@
+function disemvowel(str) {
+    const filterArr  = ['a', 'e', 'i', 'o', 'u'];
+    const resultArr = [];
+    str.split('').forEach((item)=> {
+        if (!filterArr.includes(item.toLocaleLowerCase())) {
+            resultArr.push(item);
+        }
+    });
+    let result = resultArr.join('').replace(/\n/g,'\n')
+    return result
+};
+
+console.log(disemvowel(testStr))
+
+// mask 
+
+function maskify(cc) {
+    const strLen = String(cc);
+    let counter = 0;
+    const resultStr = [];
+    for (let i in strLen) {
+        counter += 1
+        if  (counter <= strLen.length - 4) {
+            resultStr.push('#');
+        }
+        else {
+            resultStr.push(strLen[i]);
+        }
+    }
+    return resultStr.join('');
+}
+
+console.log(maskify(4556364607935616))
+
+// friends 
+
+function friend(friends){
+    const resultArr = [];
+    friends.forEach((item)=> {
+        if (item.length === 4) {
+            resultArr.push(item);
+        }
+    });
+    return resultArr;
+}
+
+const friendsArr = ["Ryan", "Kieran", "Mark"]
+console.log(friend(friendsArr))
+
+// get middle
+
+function getMiddle(s){
+    const center = s.length / 2;
+    if (s.length % 2 === 0) {
+        return s.slice(center-1, center+1);
+    }
+    return s.slice(center, center+1);
+}
+
+// array dif
+
+function arrayDiff(arr1, arr2) {
+    const dif = arr1.filter(item => !arr2.includes(item));
+    return dif;
+}
+const arr1 = [1,2]
+const arr2 = [1]
+
+console.log(arrayDiff([1,2],[1]))
+
+
+/// duplicate simbols search
+
+function duplicateCount(text){
+    let result = 0;
+    const resultObj = {};
+    text.toLowerCase().split('').map(str => {
+        if (!resultObj.hasOwnProperty(str)) {
+            resultObj[str] = 0;
+        } else {
+          if (resultObj[str] === 0) {
+            result += 1;
+          }
+          resultObj[str] = resultObj[str] + 1;
+        }
+    });
+    return result;
+}
+
+console.log(duplicateCount("abcde"))
