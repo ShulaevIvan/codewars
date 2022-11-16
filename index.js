@@ -88,3 +88,50 @@ function duplicateCount(text){
 }
 
 console.log(duplicateCount("abcde"))
+
+function persistence(num) {
+  let count = 0;
+  let digits = num.toString();
+  while(digits.length > 1) {
+    console.log(digits.split(''))
+    digits = digits.split('').reduce((acc, cur) => acc * cur, 1).toString();
+    count++;
+  }
+
+  return count;
+}
+
+function persistence(num) {
+  let counter = 0;
+  let numToStr = num.toString()
+  while (numToStr.length > 1) {
+    numToStr = numToStr.split('').reduce((prevItem, currentItem) => {
+      return prevItem * currentItem;
+    })
+    numToStr = numToStr.toString();
+    counter += 1;
+  }
+  return counter;
+}
+console.log(persistence(39))
+
+function reverseWords(str) {
+  const result = str.split(' ').map((item) => item.split('').reverse().join('')).join(' ')
+  return result;
+}
+
+function reverseWords(str) {
+  return str.split('').reverse().join('')
+}
+
+console.log(reverseWords('apple'))
+
+function rowSumOddNumbers(n) {
+  const basic  = (n - 1) * n / 2;
+  const firstNumberRow = basic * 2 + 1;
+  const lastNumber = firstNumberRow + 2 * (n - 1);
+
+  return n * (firstNumberRow + lastNumber) / 2;
+}
+
+console.log(rowSumOddNumbers(3))
