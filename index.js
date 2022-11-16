@@ -135,3 +135,20 @@ function rowSumOddNumbers(n) {
 }
 
 console.log(rowSumOddNumbers(3))
+
+
+function accum(s) {
+  const patternUpper = /\b(\w)[-]*/g;
+  const patternFix = /[-]$/;
+	const strArr =  s.split('');
+  let resultArr = [];
+  for (let i = 0; i < strArr.length;  i++) {
+    let str = strArr[i].toLowerCase().repeat(i+1) + '-';
+    resultArr.push(str);
+  }
+  const result = resultArr.join('').replace(patternFix, '').replace(patternUpper, (item) => item.toUpperCase());
+  
+  return result;
+}
+
+console.log(accum("ZpglnRxqenU"))
