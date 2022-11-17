@@ -10,7 +10,7 @@ function disemvowel(str) {
     return result
 };
 
-console.log(disemvowel(testStr))
+console.log(disemvowel('asdasdasdasd'))
 
 // mask 
 
@@ -136,7 +136,6 @@ function rowSumOddNumbers(n) {
 
 console.log(rowSumOddNumbers(3))
 
-
 function accum(s) {
   const patternUpper = /\b(\w)[-]*/g;
   const patternFix = /[-]$/;
@@ -152,3 +151,82 @@ function accum(s) {
 }
 
 console.log(accum("ZpglnRxqenU"))
+
+function positiveSum(arr) {
+    const resultArr = []
+    arr.forEach((item) => {
+        if (item > 0) {
+           resultArr.push(item);
+        }
+    });
+    if (resultArr.length === 0) {
+        return 0;
+    }
+    const result = resultArr.reduce((sum, item) => {
+        return sum + item;
+    })
+
+    return result;
+}
+
+console.log(positiveSum([0]))
+
+function findAverage(array) {
+    if (array.length === 0) {
+        return 0;
+    }
+    const result = array.reduce((sum, item) => {
+       return Math.floor((sum += item));
+    }, 0);
+    return result / array.length;
+}
+
+console.log(findAverage([1,2,3,4]))
+
+function descendingOrder(n){
+    for (let i = 0; i < n.length; i++) {
+        if (n[i] < 0) delete n[i];
+    }
+    const toArr = n.toString().split('').sort((a,b) => a - b).reverse();
+    const result = Number(toArr.join(''));
+    return result;
+}
+
+console.log(descendingOrder(42145, -1))
+
+function squareDigits(num){
+    const toArr = num.toString().split('');
+    const resultArr = [];
+    toArr.forEach((item) => {
+        resultArr.push(Math.floor(Number(item) * Number(item)));
+    })
+    return Number(resultArr.join(''));
+}
+
+console.log(squareDigits(3212))
+
+function noSpace(x){
+    let toArr = x.split('').filter(item => item != ' ');
+    return toArr.join('');
+}
+
+console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'))
+
+
+function XO(str) {
+    const xArr = str.split('').filter((item) => item.toLowerCase() == 'x');
+    const oArr = str.split('').filter((item) => item.toLowerCase() == 'o');
+
+    return xArr.length == oArr.length ? true : false;
+}
+
+console.log(XO("aasd"))
+
+function solution(str, ending){
+    if (ending.length === 0) {
+        return true;
+    }
+    return str.substr(-(ending.length)) == ending;
+}
+
+console.log(solution('abbc', ':-('))
