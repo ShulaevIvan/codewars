@@ -230,3 +230,108 @@ function solution(str, ending){
 }
 
 console.log(solution('abbc', ':-('))
+
+function countSheeps(arrayOfSheep) {
+    const counter = arrayOfSheep.filter((item) => item === true).length;
+    return counter;
+}
+const arrOfheep = [true,  true,  true,  false,
+    true,  true,  true,  true ,
+    true,  false, true,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true
+];
+console.log(countSheeps(arrOfheep))
+
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+function likes(names) {
+    let addStr;
+    let resultArr = []
+    if (names.length === 0){
+        addStr = 'no one likes this';
+        return addStr
+    }
+    else if (names.length === 1) {
+        addStr = 'likes this'
+        for(let i = 0; i < names.length; i++) {
+            resultArr.push(names[i] + addStr)
+        }
+        return resultArr
+    }
+    else {
+        for (let i = 0; i < names.length; i++) {
+            
+            if (names.length === 3) {
+                addStr = 'like this'
+                let result = resultArr.push(`${names[i]}, ${names[i+1]} and ${names[i+2]} ${addStr}`)
+                return resultArr.join('')
+            }
+            if (names.length >= 4) {
+                addStr = 'like this'
+                let result = resultArr.push(`${names[i]}, ${names[i+1]} and ${names.length - 2} others ${addStr}`)
+                console.log(resultArr)
+                return resultArr.join('')
+            }
+        }
+    }
+
+}
+
+function likes(names) {
+    let addStr;
+    let resultArr = []
+    if (names.length === 0) return 'no one likes this';
+
+    for (let i = 0; i < names.length; i++) {
+        if (names.length === 1) {
+            addStr = 'likes this';
+            resultArr.push(names[i] + ' ' + addStr);
+            return resultArr.join('');
+        }
+        else if (names.length === 2) {
+            addStr = 'like this';
+            resultArr.push(`${names[i]} and ${names[i+1]} ${addStr}`);
+            return resultArr.join('');
+
+        }
+        else if(names.length === 3) {
+            addStr = 'like this';
+            resultArr.push(`${names[i]}, ${names[i+1]} and ${names[i+2]} ${addStr}`);
+            return resultArr.join('');
+        }
+        else {
+            addStr = 'like this'
+            resultArr.push(`${names[i]}, ${names[i+1]} and ${names.length - 2} others ${addStr}`);
+            return resultArr.join('');
+        }
+
+    }
+}
+console.log(likes(["Alex", "Jacob"]))
+
+function multiplesSolution(number){
+    let targetNumber = number;
+    const resultArr = [];
+    if (number <= 0 || number === 1 || number <= 3) {
+        return 0;
+    }
+    else if (number === 5){
+        return 3;
+    }
+
+    for (let i = 1; i < number; i++)  {
+        targetNumber -= 1;
+        if (targetNumber % 5 === 0 || targetNumber % 3 === 0) {
+            resultArr.push(targetNumber);
+        }
+    }
+    return resultArr.reduce((item, next) => item + next);
+}
+console.log(multiplesSolution(10))
+
