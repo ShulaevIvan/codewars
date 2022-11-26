@@ -363,40 +363,66 @@
 
 // console.log(isSameLanguage(list2))
 
-// Test.assertDeepEquals( longestRepetition("aaaabb"),      ["a",4] );
-function longestRepetition(s) {
-    if (!s) return ['', 0];
+// function longestRepetition(s) {
+//     if (!s) return ['', 0];
 
-    const toArr = s.split('');
+//     const toArr = s.split('');
+//     const result = [];
+//     let maxValue = 0;
+//     let counter = 0;
+//     let currentEl = undefined;
+//     let symbol = undefined;
+//     for (let i = 0; i < toArr.length; i++) {
+//         currentEl = toArr[i]
+//         if (currentEl == toArr[i+1]) {
+//             counter += 1
+//         }
+//         else {
+//             if (counter >= maxValue)  {
+//                 maxValue = counter+1;
+//                 result.push([currentEl, maxValue])
+//             }
+//             counter = 0;
+//             maxValue = 0;
+//         }
+//     }
+//     maxValue = 0;
+//     currentEl = 0;
+//     for (let i = 0; i < result.length; i++) {
+//         currentEl = result[i][1]
+//         if (currentEl > maxValue) {
+//             maxValue = result[i][1]
+//             symbol =  result[i][0]
+//         }
+//     }
+//     return [symbol, maxValue];
+// }
+
+// console.log(longestRepetition('cbdeuuu900'))
+
+// assert.strictEqual(solution(["excavate", "endure", "desire", "screen", "theater", "excess", "night"]), true)
+
+function solution(words, millipede = '') {
+    if (!words.length) return true;
     const result = [];
-    let maxValue = 0;
-    let counter = 0;
-    let currentEl = undefined;
-    let symbol = undefined;
-    for (let i = 0; i < toArr.length; i++) {
-        currentEl = toArr[i]
-        if (currentEl == toArr[i+1]) {
-            counter += 1
-        }
-        else {
-            if (counter >= maxValue)  {
-                maxValue = counter+1;
-                result.push([currentEl, maxValue])
-            }
-            counter = 0;
-            maxValue = 0;
-        }
+    for(let i = 0; i < words.length; i ++){
+      const word = words[i];
+      const slicedArr = words.slice(0, i).concat(words.slice(i+1))
+      console.log(slicedArr)
+      if (millipede === '') {
+        result.push(solution(slicedArr, word))
+      }
+      if (word.slice(-1) === millipede[0]) {
+        result.push(solution(slicedArr, word + millipede))
+      }
+      else if (word[0] === millipede.slice(-1)) {
+        result.push(solution(slicedArr, millipede + word))
+      }
+      else {
+        result.push(false);
+      }
     }
-    maxValue = 0;
-    currentEl = 0;
-    for (let i = 0; i < result.length; i++) {
-        currentEl = result[i][1]
-        if (currentEl > maxValue) {
-            maxValue = result[i][1]
-            symbol =  result[i][0]
-        }
-    }
-    return [symbol, maxValue];
+    return result.filter(result => result).length > 0;
 }
 
-console.log(longestRepetition('cbdeuuu900'))
+  console.log(solution(["no", "dog", "on", "good"]))
