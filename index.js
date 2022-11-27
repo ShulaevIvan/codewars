@@ -482,7 +482,7 @@
 //     return resultArr;
 // }
 
-// for codewars over 30 000 000 el
+// // for codewars over 30 000 000 el
 
 // function missNumsFinder(arr) {
 //     const tmpArr = new Array(arr.length + 10);
@@ -495,12 +495,61 @@
 // }
 
 // impr first 
-const missNumsFinder = arr => {
-  const set = new Set(arr);
-  const result = [];
-  for (let i = 1; i <= Math.max(...Array.from(set)); i++)
-    if (!set.has(i)) result.push(i);
-  return result;
-};
+// const missNumsFinder = arr => {
+//   const set = new Set(arr);
+//   const result = [];
+//   for (let i = 1; i <= Math.max(...Array.from(set)); i++)
+//     if (!set.has(i)) result.push(i);
+//   return result;
+// };
 
-console.log(missNumsFinder([5, 4, 2, 9, 3, 8, 10, 6, 7]))
+// console.log(missNumsFinder([5, 4, 2, 9, 3, 8, 10, 6, 7]))
+
+
+// class Node {
+//     constructor(data, next = null) {
+//       this.data = data;
+//       this.next = next;
+//     }
+// }
+
+// function parse(string) {
+//     if (string == "null") {
+//         return null;
+//     }
+//     const clearStr = string.split('->').slice(0, -1).reverse('');
+//     const result = clearStr.reduce((prev, current) => {
+//         prev = new Node(Number(current), prev);
+//         return prev;
+//     }, null)
+//     return result;
+// }
+
+
+// console.log(parse("1 -> 2 -> 3 -> null"))
+
+// class Node {
+//     constructor(data, next = null) {
+//       this.data = data;
+//       this.next = next;
+//     }
+// }
+// // "1 -> 2 -> 3 -> null"
+// function stringify(list) {
+//     if (list == null){
+//         return 'null';
+//     }
+//     let next = list.next;
+//     let arr = [];
+//     arr.push(list.data);
+//     while (next != null) {
+//         arr.push(next.data);
+//         next = next['next'];
+//     }
+//     arr.push(null);
+//     let resultStr = arr.join(' -> ')+'null';
+//     return resultStr;
+// }
+
+// console.log(stringify(new Node(1, new Node(2, new Node(3)))))
+
