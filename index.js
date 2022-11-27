@@ -463,3 +463,44 @@
 // }
 
 // console.log(fibonacci(13).length)
+
+
+// my first 
+
+// function missNumsFinder(arr) {
+//     const resultArr= [];
+//     const sortedArr = arr.sort((a, b) => a - b);
+//     const max = Math.max(...arr);
+//     for (let i = 0; i < arr.length; i++){
+//       if (arr[i] > max) max = arr[i]
+//     }
+//     for (let i = 0; i < max; i++) {
+//         if (sortedArr[i] != i && i != 0 && !sortedArr.includes(i)) {
+//             resultArr.push(i);
+//         }
+//     }
+//     return resultArr;
+// }
+
+// for codewars over 30 000 000 el
+
+// function missNumsFinder(arr) {
+//     const tmpArr = new Array(arr.length + 10);
+//     for (let i = 0; i < arr.length; i++) tmpArr[arr[i]] = arr[i];
+//     while (typeof tmpArr[tmpArr.length - 1] === 'undefined') tmpArr.pop();
+//     const result = [];
+//     for (let i = 1; i < tmpArr.length; i++)
+//       if (typeof tmpArr[i] === 'undefined') result.push(i);
+//     return result;
+// }
+
+// impr first 
+const missNumsFinder = arr => {
+  const set = new Set(arr);
+  const result = [];
+  for (let i = 1; i <= Math.max(...Array.from(set)); i++)
+    if (!set.has(i)) result.push(i);
+  return result;
+};
+
+console.log(missNumsFinder([5, 4, 2, 9, 3, 8, 10, 6, 7]))
