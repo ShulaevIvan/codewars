@@ -402,27 +402,64 @@
 
 // assert.strictEqual(solution(["excavate", "endure", "desire", "screen", "theater", "excess", "night"]), true)
 
-function solution(words, millipede = '') {
-    if (!words.length) return true;
-    const result = [];
-    for(let i = 0; i < words.length; i ++){
-      const word = words[i];
-      const slicedArr = words.slice(0, i).concat(words.slice(i+1))
-      console.log(slicedArr)
-      if (millipede === '') {
-        result.push(solution(slicedArr, word))
-      }
-      if (word.slice(-1) === millipede[0]) {
-        result.push(solution(slicedArr, word + millipede))
-      }
-      else if (word[0] === millipede.slice(-1)) {
-        result.push(solution(slicedArr, millipede + word))
-      }
-      else {
-        result.push(false);
-      }
-    }
-    return result.filter(result => result).length > 0;
-}
+// function solution(words, millipede = '') {
+//     if (!words.length) return true;
+//     const result = [];
+//     for(let i = 0; i < words.length; i ++){
+//       const word = words[i];
+//       const slicedArr = words.slice(0, i).concat(words.slice(i+1))
+//       if (millipede === '') {
+//         result.push(solution(slicedArr, word))
+//       }
+//       if (word.slice(-1) === millipede[0]) {
+//         console.log(word.slice(-1))
+//         result.push(solution(slicedArr, word + millipede))
+//       }
+//       else if (word[0] === millipede.slice(-1)) {
+//         result.push(solution(slicedArr, millipede + word))
+//       }
+//       else {
+//         result.push(false);
+//       }
+//     }
+//     return result.filter(result => result).length > 0;
+// }
 
-  console.log(solution(["no", "dog", "on", "good"]))
+//   console.log(solution(["no", "dog", "on", "good"]))
+
+// function fibonacciEven(max) {
+//     if (max == 0 || max == 1) {
+//         return 0;
+//     }
+//     let fib1 = 0 
+//     let fib2 = 2;
+//     let sum = fib1 + fib2;
+//     while (fib2 <= max) {
+//         let fib3 = 4 * fib2 + fib1;
+//         if (fib3 >= max) {
+//             break;
+//         }    
+//         fib1 = fib2;
+//         fib2 = fib3;
+//         sum += fib2;
+//     }
+//     return sum
+// }
+// console.log(fibonacciEven(8))
+
+// function fibonacci(n) {
+//     //return fibonacci array of n elements 
+//     const allArr = [];
+//     if (n == 0) {
+//         return allArr;
+//     }
+//     for (let i = 0; i < n; i++){
+//         allArr.push(i)
+//     }
+//     for (let i = 2; i < allArr.length; i++) {
+//         allArr[i] = allArr[i-1] + allArr[i-2]
+//     }
+//     return allArr;
+// }
+
+// console.log(fibonacci(13).length)
