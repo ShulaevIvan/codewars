@@ -553,3 +553,78 @@
 
 // console.log(stringify(new Node(1, new Node(2, new Node(3)))))
 
+// [1, 2, 3], [4, 5, 6]              -->   9   because (9 + 9 + 9) / 3
+// [10, 20, 10, 2], [10, 25, 5, -2]  -->  16.5 because (0 + 25 + 25 + 16) / 4
+// [-1, 0], [0, -1]                  -->   1   because (1 + 1) / 2
+
+// let solution = function(firstArray, secondArray) {
+// 	let error = 0
+// 	for (let i = 0; i < firstArray.length; i++) {
+// 		error += Math.pow((secondArray[i] - firstArray[i]), 2)
+// 	}
+// 	return error / firstArray.length
+// }
+
+
+// let isSquare = function(n){
+//     let result = Math.sqrt(n);
+//     return (result % 1 === 0);
+// }
+
+// console.log(isSquare(25))
+// "(123) 456-7890"
+
+// function createPhoneNumber(numbers){
+//     let resultStr = ''
+//     let i = 0;
+//     while (i < numbers.length) {
+//         if (i == 0) {
+//             resultStr += '(' + numbers[i];
+//         }
+//         else if (i != 0 && i < 2) {
+//             resultStr += numbers[i];
+//         }
+//         else if (i == 2) {
+//             resultStr += numbers[i] + ')'+' ';
+//         } 
+//          else if (i > 2 && i < 5) {
+//             resultStr+=numbers[i];
+//         }
+//         else if (i == 5) {
+//             resultStr+= numbers[i] + '-';
+//         }
+//         else if (i > 5){
+//             resultStr+=numbers[i];
+//         }         
+//         i += 1;
+//     }
+//     return resultStr;
+// }
+
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+// 8 + 1 = 9 and 9 ** 2 = 81
+
+// 512 = 5 + 1 + 2 = 8 and 8**3 = 512
+function powerSumDigTerm(n) {
+    let basicNum = 0;
+    let basicPow = 0;
+    let result = 0;
+    if (n == 0 || n == 1) {
+        return Math.pow(9, 2);
+    }
+
+    for (let i = 0; i < n; i++){
+        if (i == 0) {
+            basicNum = 9;
+            basicPow = 2;
+            continue
+        }
+        basicPow += 1;
+        basicNum -= 1;
+        console.log(basicNum)
+        result = Math.pow(basicNum, basicPow)
+    } 
+    return result;
+}
+console.log(powerSumDigTerm(3))
