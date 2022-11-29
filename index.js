@@ -606,25 +606,55 @@
 // 8 + 1 = 9 and 9 ** 2 = 81
 
 // 512 = 5 + 1 + 2 = 8 and 8**3 = 512
-function powerSumDigTerm(n) {
-    let basicNum = 0;
-    let basicPow = 0;
-    let result = 0;
-    if (n == 0 || n == 1) {
-        return Math.pow(9, 2);
-    }
 
-    for (let i = 0; i < n; i++){
-        if (i == 0) {
-            basicNum = 9;
-            basicPow = 2;
-            continue
+// function powerSumDigTerm(n) {
+//     let basicNum = 9;
+//     let basicPow = 2;
+//     let result = 0;
+//     if (n == 0 || n == 1) {
+//         return Math.pow(basicNum, basicPow);
+//     }
+
+//     for (let i = 0; i < n; i++){
+//         if (i == 0) {
+//             continue
+//         }
+//         basicPow += 1;
+//         basicNum -= 1;
+//         result = Math.pow(basicNum, basicPow)
+//     } 
+//     return result;
+// }
+
+// for (int b = 2; b < 400; b++) {
+//     BigInteger value = b;
+//     for (int e = 2; e < 50; e++) {
+//         value *= b;
+ 
+//         if (DigitSum(value) == b) {
+//             a.Add(value);            
+//         }
+//         if (a.Count > 50) break;                    
+//     }
+//     if (a.Count > 50) break;                    
+// }
+
+
+function powerSumDigTerm(n) {
+    let resultArr = [];
+    for (let i = 2; i <= 100; i++) {
+        for (let j = 2; j <= 45; j++) {
+            let powNum= Math.pow(i, j).toString();
+            let sum = 0;
+
+            for (let k = 0; k < powNum.length; k++) sum += parseInt(powNum[k], 10);
+            if (sum === i) {
+                resultArr.push(parseInt(powNum,10));
+            }
         }
-        basicPow += 1;
-        basicNum -= 1;
-        console.log(basicNum)
-        result = Math.pow(basicNum, basicPow)
-    } 
-    return result;
+    }
+    resultArr = resultArr.sort((a, b) => a - b);
+    return resultArr[n-1];
 }
-console.log(powerSumDigTerm(3))
+
+console.log(powerSumDigTerm(4))
