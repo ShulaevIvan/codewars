@@ -639,22 +639,68 @@
 //     if (a.Count > 50) break;                    
 // }
 
+// function powerSumDigTerm(n) {
+//     let resultArr = [];
+//     for (let i = 2; i <= 100; i++) {
+//         for (let j = 2; j <= 45; j++) {
+//             let powNum= Math.pow(i, j).toString();
+//             let sum = 0;
 
-function powerSumDigTerm(n) {
-    let resultArr = [];
-    for (let i = 2; i <= 100; i++) {
-        for (let j = 2; j <= 45; j++) {
-            let powNum= Math.pow(i, j).toString();
-            let sum = 0;
+//             for (let k = 0; k < powNum.length; k++) sum += parseInt(powNum[k], 10);
+//             if (sum === i) {
+//                 resultArr.push(parseInt(powNum,10));
+//             }
+//         }
+//     }
+//     resultArr = resultArr.sort((a, b) => a - b);
+//     return resultArr[n-1];
+// }
 
-            for (let k = 0; k < powNum.length; k++) sum += parseInt(powNum[k], 10);
-            if (sum === i) {
-                resultArr.push(parseInt(powNum,10));
-            }
-        }
-    }
-    resultArr = resultArr.sort((a, b) => a - b);
-    return resultArr[n-1];
-}
+// console.log(powerSumDigTerm(4))
 
-console.log(powerSumDigTerm(4))
+// function findMatchedByPattern(pattern) {
+//     return (resultStr) => {
+//       const checkArr = [...pattern];
+//       for (let sym of resultStr) {
+//         let checkPos = checkArr.indexOf(sym);
+//         if (checkPos > 0) {
+//             return false;
+//         }
+//         else if (checkPos === 0) {
+//             checkArr.splice(0, 1);
+//         }
+//       }
+//       return checkArr.length === 0;
+//     }
+// }
+
+// const predicate = findMatchedByPattern('acs')
+// console.log(predicate("accsess"))
+
+// function solution(nums){
+//     if (!nums) return [];
+//     return nums.sort((a,b) => a - b);
+// }
+
+// console.log(solution([1, 2, 10, 50, 5]))
+
+// function nextPal(val) {
+//     let counter = val;
+//     while(val < 99999999) {
+//         counter += 1
+//         if (isPalidrome(counter)) {
+//             return counter;
+//         }else if (counter === 9999999999) {
+//             return false;
+//         };
+//     };
+// };
+
+// function isPalidrome(number) {
+//     let tmpNum = number.toString().split('').reverse().join('');
+//     if (tmpNum == number) {
+//         return true;
+//     };
+// };
+
+// console.log(nextPal(188))
