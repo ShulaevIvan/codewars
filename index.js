@@ -704,3 +704,10 @@
 // };
 
 // console.log(nextPal(188))
+
+const hackerrankTask = n => [
+    ...Array.from({length: n}, (_, index) => ' '.repeat(n - 1 - index) + '/\\'.repeat(index + 1) + '_\\'.repeat(n)),
+    ...Array.from({length: n}, (_, index) => ' '.repeat(index) + '\\/'.repeat(n - index) + '_/'.repeat(n)),
+].join('\n');
+
+console.log(hackerrankTask(3))
