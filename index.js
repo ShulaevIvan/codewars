@@ -711,3 +711,44 @@ const hackerrankTask = n => [
 ].join('\n');
 
 console.log(hackerrankTask(3))
+
+
+let defenceSurvivors = 0
+let attackSurvivors = 0 
+let loopLimit
+
+// if (attackers.length > defenders.length) {
+//   loopLimit = defenders.length 
+//   attackSurvivors += attackers.length - defenders.length 
+// }
+
+// if (defenders.length > attackers.length) {
+//   loopLimit = attackers.length 
+//   defenceSurvivors += defenders.length - attackers.length 
+// }
+
+// else if (defenders.length === attackers.length) {
+//   loopLimit = defenders.length 
+//   }
+
+
+// for (let i = 0; i < loopLimit; i++) {
+//   if (attackers[i] === defenders[i]) continue 
+//   else if (attackers[i] > defenders[i]) attackSurvivors++ 
+//   else defenceSurvivors++
+// }
+// console.log([attackSurvivors, defenceSurvivors])
+
+// if (attackSurvivors === defenceSurvivors) {
+//   let initialAttackPower = attackers.reduce((pv,cv) => pv + cv,0)
+//   let initialDefensePower = defenders.reduce((pv,cv) => pv + cv,0)
+  
+//   if (initialDefensePower >= initialAttackPower) return true
+//   else return false 
+// }
+// else if (attackSurvivors > defenceSurvivors) {
+//   return false 
+// }
+// else return true
+
+// }
