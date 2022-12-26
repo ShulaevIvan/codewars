@@ -158,3 +158,26 @@ from pprint import pprint
       
 # print(movie_times(13, 23, 60))
 
+# def get_sum(a,b):
+#     pos = sum(list(range(a, b+1)))
+#     neg = sum(list(range(b, a+1)))
+#     if a < b:
+#         return pos
+#     else:
+#         return neg
+
+
+
+# print(get_sum(-3034,2892))
+
+# def grow(arr):
+#     sum = 1
+#     for i in arr:
+#         sum *= i
+#     return sum
+
+# print(grow([1, 2, 3, 4]))
+
+# from re import sub
+# def purify1(s):
+#     return " ".join(word for word in sub(r"(?i)\w?i+\w?", "", s).split())
